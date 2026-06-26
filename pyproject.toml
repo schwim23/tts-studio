@@ -1,0 +1,23 @@
+[project]
+name = "tts-studio"
+version = "0.1.0"
+description = "Turn text, PDFs, Word docs, web articles, and YouTube videos into narrated audio."
+requires-python = ">=3.10"
+
+[project.scripts]
+tts = "cli:main"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = [
+    "network: tests that hit live TTS / web endpoints (skipped unless --run-network)",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
